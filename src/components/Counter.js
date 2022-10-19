@@ -5,16 +5,17 @@ export default class Counter extends Component {
   constructor() {
     super();
 
-    this.currentCounter = 2;
+    this.state = {
+      currentCounter: 2,
+      steps: 0,
+    }
   }
 
-  handleClick = () => {
-    console.log('Click');
-    this.currentCounter--;
-    this.render();
-  };
+  handleClick = () => { };
 
   render() {
+    const { currentCounter, steps } = this.state;
+
     return (
       <div className={css.counterContainer}>
         <button
@@ -24,13 +25,14 @@ export default class Counter extends Component {
         >
           -
         </button>
-        <span class={css.counterValue}>{this.currentCounter}</span>
+        <span className={css.counterValue}>{currentCounter}</span>
         <button
           className="waves-effect
         waves-light btn green darken-4"
         >
           +
         </button>
+        <span className={css.counterValue}>({steps})</span>
       </div>
     )
   }
