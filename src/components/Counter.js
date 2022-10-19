@@ -11,7 +11,23 @@ export default class Counter extends Component {
     }
   }
 
-  handleClick = () => { };
+  handleButtonDownClick = () => {
+    const { currentCounter, steps } = this.state;
+
+    this.setState({
+      currentCounter: currentCounter - 1,
+      steps: steps + 1,
+    })
+  };
+
+  handleButtonUpClick = () => {
+    const { currentCounter, steps } = this.state;
+
+    this.setState({
+      currentCounter: currentCounter + 1,
+      steps: steps + 1,
+    })
+  };
 
   render() {
     const { currentCounter, steps } = this.state;
@@ -19,7 +35,7 @@ export default class Counter extends Component {
     return (
       <div className={css.counterContainer}>
         <button
-          onClick={this.handleClick}
+          onClick={this.handleButtonDownClick}
           className="waves-effect
         waves-light btn red darken-4"
         >
@@ -27,6 +43,7 @@ export default class Counter extends Component {
         </button>
         <span className={css.counterValue}>{currentCounter}</span>
         <button
+          onClick={this.handleButtonUpClick}
           className="waves-effect
         waves-light btn green darken-4"
         >
