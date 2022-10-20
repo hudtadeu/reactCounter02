@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import Counter from './components/Counter'
-import Counter2 from './components/Counter2'
+import Counter from './components/Counter';
+import Counter2 from './components/Counter2';
+import Band from './components/Band';
 
 
 export default class App extends Component {
@@ -22,33 +23,36 @@ export default class App extends Component {
     });
   };
 
-render() {
-  const { currentCounter, steps } = this.state;
+  render() {
+    const { currentCounter, steps } = this.state;
 
-  return (
-    <Fragment>
-      <h3>Counter</h3>
-      <Counter />
-      <Counter />
-      <Counter />
+    return (
+      <Fragment>
+        <h3>Band</h3>
+        <Band />
 
-      <h3>Counter 2</h3>
-      <Counter2
-        onCount={this.handleCount}
-        countValue={currentCounter}
-        currentStep={steps}
-      />
-      <Counter2
-        onCount={this.handleCount}
-        countValue={currentCounter}
-        currentStep={steps}
-      />
-      <Counter2
-        onCount={this.handleCount}
-        countValue={currentCounter}
-        currentStep={steps}
-      />
-    </Fragment>
-  );
-}
+        <h3>Counter</h3>
+        <Counter />
+        <Counter />
+        <Counter />
+
+        <h3>Counter 2</h3>
+        <Counter2
+          onCount={this.handleCount}
+          countValue={currentCounter}
+          currentStep={steps}
+        />
+        <Counter2
+          onCount={this.handleCount}
+          countValue={currentCounter}
+          currentStep={steps}
+        />
+        <Counter2
+          onCount={this.handleCount}
+          countValue={currentCounter}
+          currentStep={steps}
+        />
+      </Fragment>
+    );
+  }
 }
